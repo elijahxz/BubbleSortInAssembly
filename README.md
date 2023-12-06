@@ -1,5 +1,4 @@
 # Bubble Sort In Assembly
-This is an RSC that I built in Assembly and Computer Organization at MTSU
 
 All of the logisim circuits that were created were done by my partner, Chris Keiningham, and myself.
 
