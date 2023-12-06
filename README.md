@@ -8,6 +8,7 @@ The bubble sort RSC assembly program was created by myself.
 The compiler used for these programs can be found here: https://github.com/Calastrophe/pythonRSC
 
 To run the RSC:
+    
     1. Please download logisim. It can be downloaded here: https://github.com/logisim-evolution/logisim-evolution#download
 
     2. Clone this repository then open RSC.circ in logisim. 
