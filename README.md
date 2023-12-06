@@ -5,7 +5,7 @@ All of the logisim circuits that were created were done by my partner, Chris Kei
 
 The bubble sort RSC assembly program was created by myself. 
 
-The compiler used for these programs can be found here: https://github.com/Calastrophe/pythonRSC
+The compiler used for this programs can be found here: https://github.com/Calastrophe/pythonRSC
 
 To run the RSC:
     
