@@ -1,0 +1,414 @@
+; Elijah Atkins
+; OLA7 / Final Project
+; I chose to do bubble sort of 8 numbers
+JMP Start
+
+; Start input: 3, 2, 1, 9, 4, 2, 3, 5
+; End Output:  1, 2, 2, 3, 3, 4, 5, 9
+
+; Variable Declarations
+n1: BBBB
+n2: ABCDEF
+n3: 7FFFFFFF
+n4: 9
+n5: 7
+n6: 5
+n7: 700DDDDD
+n8: 2A
+
+sorted: 0
+swaps: 0
+sub: 1
+
+negative: 80000000
+
+temp1: 0
+temp2: 0
+
+temp3: 0
+
+; Sometimes it is known to add/subtract a const value
+; It can be done using these const vars to save on instruction usage
+one: 1
+two: 2
+three: 3 
+four: 4
+five: 5
+six: 6
+seven: 7 
+
+; End Variable Declarations
+
+; The start of the program.
+;
+; Main(N) refers to the start of a swap between (N) and (N)+1
+;
+; Main(N) First checks if a swap is required by checking how many numbers are already sorted.
+;   Note: this is how we can get the n*(n-1)/2 number of comparisons instead of n^2
+; If a swap is required, it loads the right variables into temporary ones.
+;
+; After Main(N), Comp is entered. Comp checks if a swap is needed
+;       If no swap is needed -> go to Main(N) + 1
+;       If swap is needed    -> go to Swap(N)
+;           After swap -> go to Main(N) + 1
+;
+; At Main7, it will go to End instead of Main(N)+1 ... doesn't exist since we have 8 variables
+;
+; End increments the number of sorted positions. This is how we can check if a swap is required in any Main(N)
+; End checks if there were any swaps. 
+;   If there were swaps, start again at Main1. 
+;   If there were no swaps, go to Done
+
+; To reduce the amount of code, I have a MainSwitch and SwapSwitch. This uses the temp3 variable to see where 
+; we need to go next logically.
+
+Start:
+    LDAC n1
+    OUT
+    LDAC n2
+    OUT
+    LDAC n3
+    OUT
+    LDAC n4
+    OUT
+    LDAC n5
+    OUT
+    LDAC n6
+    OUT
+    LDAC n7
+    OUT
+    LDAC n8
+    OUT
+
+Main1:
+   LDAC seven
+   MVAC
+   LDAC sorted
+   SUB
+   JMPZ End     ; If the loop has been iterated through 7 times here, we know all the values are sorted
+
+   ; Start of comparing n1 and n2
+   
+   LDAC n1
+   STAC temp1   ;Store n1 in temp1
+   LDAC n2
+   STAC temp2   ;Store n2 in temp2
+   
+   CLAC
+   STAC temp3
+   
+   JMP Comp
+Swap1:
+   LDAC n2
+   STAC temp1   ;store n2 in a temp variable
+   LDAC n1
+   STAC n2      ;store n1 in n2
+   LDAC temp1
+   STAC n1      ;store n2 (temp1) in n1
+   LDAC swaps
+   INC
+   STAC swaps   ;since we did a swap, update the counter
+
+
+Main2:
+   LDAC six
+   MVAC
+   LDAC sorted
+   SUB
+   JMPZ End     ; If the loop has been iterated through 6 times here, we know n3 is in the right place
+
+   ; Start of comparing n2 and n3
+   
+   LDAC n2
+   STAC temp1   ;Store n2 in temp1
+   LDAC n3
+   STAC temp2   ;Store n3 in temp2
+
+   LDAC one     ; insert one into temp3 because we are at swap 2 (index 1)
+   STAC temp3
+   
+   JMP Comp
+
+Swap2:
+   LDAC n3
+   STAC temp1   ;store n3 in a temp variable
+   LDAC n2
+   STAC n3      ;store n2 in n3
+   LDAC temp1
+   STAC n2      ;store n3 (temp1) in n2
+   LDAC swaps
+   INC
+   STAC swaps   ;since we did a swap, update the counter
+
+
+Main3:
+   LDAC five
+   MVAC
+   LDAC sorted
+   SUB
+   JMPZ End     ; If the loop has been iterated through 5 times here, we know n4 is in the right place
+
+   ; Start of comparing n3 and n4
+  
+   LDAC n3
+   STAC temp1   ;Store n3 in temp1
+   LDAC n4
+   STAC temp2   ;Store n4 in temp2
+
+   LDAC two     ; insert two into temp3 because we are at swap 3 (index 2)
+   STAC temp3
+   
+   JMP Comp
+
+Swap3:
+   LDAC n4
+   STAC temp1   ;store n4 in a temp variable
+   LDAC n3
+   STAC n4      ;store n3 in n4
+   LDAC temp1
+   STAC n3      ;store n4 (temp1) in n3
+   LDAC swaps
+   INC
+   STAC swaps   ;since we did a swap, update the counter
+
+
+Main4:
+   LDAC four
+   MVAC
+   LDAC sorted
+   SUB
+   JMPZ End     ; If the loop has been iterated through 4 times here, we know n5 is in the right place
+
+   ; Start of comparing n4 and n5
+   
+   LDAC n4
+   STAC temp1   ;Store n4 in temp1
+   LDAC n5
+   STAC temp2   ;Store n5 in temp2
+   
+   LDAC three     ; insert three into temp3 because we are at swap 4 (index 3)
+   STAC temp3
+   
+   JMP Comp
+
+Swap4:
+   LDAC n5
+   STAC temp1   ;store n5 in a temp variable
+   LDAC n4
+   STAC n5      ;store n4 in n5
+   LDAC temp1
+   STAC n4      ;store n5 (temp1) in n4
+   LDAC swaps
+   INC
+   STAC swaps   ;since we did a swap, update the counter
+
+
+Main5:
+   LDAC three
+   MVAC
+   LDAC sorted
+   SUB
+   JMPZ End     ; If the loop has been iterated through 3 times here, we know n6 is in the right place
+
+   ; Start of comparing n5 and n6
+
+   LDAC n5
+   STAC temp1   ;Store n5 in temp1
+   LDAC n6
+   STAC temp2   ;Store n6 in temp2
+   
+   LDAC four     ; insert four into temp3 because we are at swap 5 (index 4)
+   STAC temp3
+   
+   JMP Comp
+
+Swap5:
+   LDAC n6
+   STAC temp1   ;store n6 in a temp variable
+   LDAC n5
+   STAC n6      ;store n5 in n6
+   LDAC temp1
+   STAC n5      ;store n6 (temp1) in n5
+   LDAC swaps
+   INC
+   STAC swaps   ;since we did a swap, update the counter
+
+
+Main6:
+   LDAC two
+   MVAC
+   LDAC sorted
+   SUB
+   JMPZ End     ; If the loop has been iterated through 2 times here, we know n7 is in the right place
+
+   ; Start of comparing n6 and n7
+   
+   LDAC n6
+   STAC temp1   ;Store n6 in temp1
+   LDAC n7
+   STAC temp2   ;Store n7 in temp2
+   
+   LDAC five     ; insert five into temp3 because we are at swap 6 (index 5)
+   STAC temp3
+   
+   JMP Comp
+
+Swap6:
+   LDAC n7
+   STAC temp1   ;store n7 in a temp variable
+   LDAC n6
+   STAC n7      ;store n6 in n7
+   LDAC temp1
+   STAC n6      ;store n7 (temp1) in n6
+   LDAC swaps
+   INC
+   STAC swaps   ;since we did a swap, update the counter
+
+
+Main7:
+   LDAC one
+   MVAC
+   LDAC sorted
+   SUB
+   JMPZ End     ; If the loop has been iterated through once, we know n8 is in the right place
+   
+  ; Start of comparing n7 and n8
+  
+   LDAC n7
+   STAC temp1   ;Store n7 in temp1
+   LDAC n8
+   STAC temp2   ;Store n8 in temp2
+   
+   LDAC six     ; insert six into temp3 because we are at swap 7 (index 6)
+   STAC temp3
+   
+   JMP Comp
+
+Swap7:
+   LDAC n8
+   STAC temp1   ;store n8 in a temp variable
+   LDAC n7
+   STAC n8      ;store n7 in n8
+   LDAC temp1
+   STAC n7      ;store n8 (temp1) in n7
+   LDAC swaps
+   INC
+   STAC swaps   ;since we did a swap, update the counter
+
+
+;Here we check if any swaps occured
+;   If any swaps, go back to the start of the program (Main1)
+;   If no swaps, go to Done :)
+End:
+   LDAC swaps
+   JMPZ Done
+   CLAC
+   STAC swaps
+
+   LDAC sorted ; When we are here, we know the last value is sorted, so we can
+   INC         ; Have a variable representing that to skip over logic in the next
+   STAC sorted ; iteration
+
+   JMP Main1
+
+Comp:
+   LDAC temp1   ;load temp1 (n1)
+   MVAC         ;Move n1 to R
+   LDAC temp2   ;load temp2 (n2)
+
+   SUB
+
+   MVAC
+  
+   LDAC negative
+  
+   AND
+    
+   JMPZ MainSwitch   ;ACC zero? we know n1 < n2, so skip swap and go to next
+   
+   JMP SwapSwitch    ;ACC not zero? we know n2 < n1, so swap!
+  
+MainSwitch:
+    LDAC sub
+    
+    MVAC
+
+    LDAC temp3
+
+    JMPZ Main2
+
+    SUB 
+
+    JMPZ Main3
+
+    SUB 
+
+    JMPZ Main4
+    
+    SUB 
+
+    JMPZ Main5
+    
+    SUB 
+
+    JMPZ Main6
+    
+    SUB 
+
+    JMPZ Main7
+
+    SUB 
+
+    JMPZ End
+    
+SwapSwitch:
+    LDAC sub
+    
+    MVAC
+
+    LDAC temp3
+    
+    JMPZ Swap1
+
+    SUB
+
+    JMPZ Swap2
+
+    SUB 
+
+    JMPZ Swap3
+
+    SUB 
+
+    JMPZ Swap4
+    
+    SUB 
+
+    JMPZ Swap5
+    
+    SUB 
+
+    JMPZ Swap6
+    
+    SUB 
+
+    JMPZ Swap7
+
+Done:
+    LDAC n1
+    OUT
+    LDAC n2
+    OUT
+    LDAC n3
+    OUT
+    LDAC n4
+    OUT
+    LDAC n5
+    OUT
+    LDAC n6
+    OUT
+    LDAC n7
+    OUT
+    LDAC n8
+    OUT
+    HALT
