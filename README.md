@@ -1,8 +1,8 @@
 # Bubble Sort In Assembly
 
-All of the logisim circuits that were created were done by my partner, Chris Keiningham, and myself.
+I created a bubble sort program that runs on a relatively simple computer (RSC) in logisim or through the terminal using pythonRSC. 
 
-The bubble sort RSC assembly program was created by myself. 
+All of the logisim circuits that were created were done by my partner, Chris Keiningham, and myself.
 
 The compiler used for this programs can be found here: https://github.com/Calastrophe/pythonRSC
 
