@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project source="3.8.0" version="1.0">
-  This file is intended to be loaded by Logisim-evolution v3.8.0(https://github.com/logisim-evolution/).
+<project source="3.9.0" version="1.0">
+  This file is intended to be loaded by Logisim-evolution v3.9.0(https://github.com/logisim-evolution/).
 
   <lib desc="#Wiring" name="0">
     <tool name="Splitter">
@@ -32,9 +32,9 @@
   <lib desc="#BFH-Praktika" name="9"/>
   <lib desc="#Input/Output-Extra" name="10"/>
   <lib desc="#Soc" name="11"/>
-  <lib desc="file#outr_multiple.circ" name="12"/>
-  <lib desc="file#PLDs.circ" name="13"/>
-  <lib desc="file#custom_reg.circ" name="14"/>
+  <lib desc="file#custom_reg.circ" name="12"/>
+  <lib desc="file#outr_multiple.circ" name="13"/>
+  <lib desc="file#PLDs.circ" name="14"/>
   <main name="Arith_U"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -437,13 +437,13 @@
       <a name="bit9" val="0"/>
       <a name="incoming" val="32"/>
     </comp>
-    <comp lib="12" loc="(1460,1170)" name="outr_multiple"/>
-    <comp lib="14" loc="(1090,620)" name="DR"/>
-    <comp lib="14" loc="(1300,970)" name="ACC"/>
-    <comp lib="14" loc="(1330,440)" name="PC"/>
-    <comp lib="14" loc="(310,620)" name="IR"/>
-    <comp lib="14" loc="(840,790)" name="R"/>
-    <comp lib="14" loc="(950,270)" name="AR"/>
+    <comp lib="12" loc="(1090,620)" name="DR"/>
+    <comp lib="12" loc="(1300,970)" name="ACC"/>
+    <comp lib="12" loc="(1330,440)" name="PC"/>
+    <comp lib="12" loc="(310,620)" name="IR"/>
+    <comp lib="12" loc="(840,790)" name="R"/>
+    <comp lib="12" loc="(950,270)" name="AR"/>
+    <comp lib="13" loc="(1460,1170)" name="outr_multiple"/>
     <comp lib="4" loc="(1100,240)" name="RAM">
       <a name="addrWidth" val="16"/>
       <a name="appearance" val="classic"/>
@@ -665,9 +665,9 @@
     <wire from="(1300,990)" to="(1370,990)"/>
     <wire from="(1330,440)" to="(1750,440)"/>
     <wire from="(1330,460)" to="(1370,460)"/>
+    <wire from="(1340,320)" to="(1370,320)"/>
     <wire from="(1340,950)" to="(1340,970)"/>
     <wire from="(1340,950)" to="(1550,950)"/>
-    <wire from="(1350,320)" to="(1370,320)"/>
     <wire from="(1370,210)" to="(1370,320)"/>
     <wire from="(1370,320)" to="(1370,330)"/>
     <wire from="(1370,330)" to="(1370,460)"/>
@@ -1606,7 +1606,7 @@
     <comp lib="1" loc="(320,330)" name="NOR Gate">
       <a name="inputs" val="32"/>
     </comp>
-    <comp lib="14" loc="(780,160)" name="Onebit_reg"/>
+    <comp lib="12" loc="(780,160)" name="Onebit_reg"/>
     <comp lib="8" loc="(25,35)" name="Text">
       <a name="text" val="OLA 6"/>
     </comp>
@@ -1825,25 +1825,25 @@
       <a name="fanout" val="8"/>
       <a name="incoming" val="8"/>
     </comp>
-    <comp lib="13" loc="(1500,1070)" name="PLD_PC_BUS"/>
-    <comp lib="13" loc="(1500,1140)" name="PLD_DR_LD"/>
-    <comp lib="13" loc="(1500,1350)" name="PLD_DR_BUS"/>
-    <comp lib="13" loc="(1500,1520)" name="PLD_R_LD"/>
-    <comp lib="13" loc="(1500,1610)" name="PLD_R_BUS"/>
-    <comp lib="13" loc="(1500,1760)" name="PLD_ACC_LD"/>
-    <comp lib="13" loc="(1500,2030)" name="PLD_ACC_CLR"/>
-    <comp lib="13" loc="(1500,2100)" name="PLD_ACC_BUS"/>
-    <comp lib="13" loc="(1500,2230)" name="PLD_ALU_SEL"/>
-    <comp lib="13" loc="(1500,2420)" name="PLD_OUTR_LD"/>
-    <comp lib="13" loc="(1500,2510)" name="PLD_Z_LD"/>
-    <comp lib="13" loc="(1500,2560)" name="PLD_SC_CLR"/>
-    <comp lib="13" loc="(1500,260)" name="PLD_IR_LD"/>
-    <comp lib="13" loc="(1500,2760)" name="PLD_S_LD"/>
-    <comp lib="13" loc="(1500,330)" name="PLD_RAM_WE"/>
-    <comp lib="13" loc="(1500,420)" name="PLD_RAM_OE"/>
-    <comp lib="13" loc="(1500,610)" name="PLD_AR_LD"/>
-    <comp lib="13" loc="(1500,760)" name="PLD_PC_LD"/>
-    <comp lib="13" loc="(1500,900)" name="PLD_PC_INC"/>
+    <comp lib="14" loc="(1500,1070)" name="PLD_PC_BUS"/>
+    <comp lib="14" loc="(1500,1140)" name="PLD_DR_LD"/>
+    <comp lib="14" loc="(1500,1350)" name="PLD_DR_BUS"/>
+    <comp lib="14" loc="(1500,1520)" name="PLD_R_LD"/>
+    <comp lib="14" loc="(1500,1610)" name="PLD_R_BUS"/>
+    <comp lib="14" loc="(1500,1760)" name="PLD_ACC_LD"/>
+    <comp lib="14" loc="(1500,2030)" name="PLD_ACC_CLR"/>
+    <comp lib="14" loc="(1500,2100)" name="PLD_ACC_BUS"/>
+    <comp lib="14" loc="(1500,2230)" name="PLD_ALU_SEL"/>
+    <comp lib="14" loc="(1500,2420)" name="PLD_OUTR_LD"/>
+    <comp lib="14" loc="(1500,2510)" name="PLD_Z_LD"/>
+    <comp lib="14" loc="(1500,2560)" name="PLD_SC_CLR"/>
+    <comp lib="14" loc="(1500,260)" name="PLD_IR_LD"/>
+    <comp lib="14" loc="(1500,2760)" name="PLD_S_LD"/>
+    <comp lib="14" loc="(1500,330)" name="PLD_RAM_WE"/>
+    <comp lib="14" loc="(1500,420)" name="PLD_RAM_OE"/>
+    <comp lib="14" loc="(1500,610)" name="PLD_AR_LD"/>
+    <comp lib="14" loc="(1500,760)" name="PLD_PC_LD"/>
+    <comp lib="14" loc="(1500,900)" name="PLD_PC_INC"/>
     <comp lib="8" loc="(1000,2705)" name="Text">
       <a name="text" val="T0"/>
     </comp>
